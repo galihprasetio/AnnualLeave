@@ -15,3 +15,4 @@ Dim i, j As Integer
 	Next
 	
 	Call CurrDoc.ReplaceItemValue("DateList", xList)
+--
