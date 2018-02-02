@@ -1,0 +1,5 @@
+Dim StartDateTime As New NotesDateTime("")
+	StartDateTime.LocalTime = Datenumber(Year(Today), Month(Today), 1)
+	Call StartDateTime.AdjustMonth(1)
+	Call StartDateTime.AdjustDay(-1)
+	Msgbox(Day(StartDateTime.LSLocalTime))

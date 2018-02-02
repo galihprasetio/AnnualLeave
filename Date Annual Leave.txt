@@ -1,0 +1,18 @@
+//Date Annual Leave
+
+If thisDoc.alDate(0) = "" Then
+		Messagebox"Please fill date annual leave ! ",MB_ICONINFORMATION,"Information"
+		Call thisUIDoc.GotoField("alDate")
+	Else
+		If (Year(thisDoc.alDate(0)) <> thisDoc.alValidity(0))  Then
+			Messagebox"Date Annual Leave does not match with Year Validity ! ",MB_ICONINFORMATION,"Information"
+			Call thisUIDoc.GotoField("alDate")
+		Elseif thisDoc.alDate(0) < Today()  Then
+			Messagebox"Date has been passed ",MB_ICONINFORMATION,"Information"
+			Call thisUIDoc.GotoField("alDate")
+		Elseif Cstr(thisDoc.alDate(0)) = "" Then
+			Messagebox"Please fill annual leave date ",MB_ICONINFORMATION,"Information"
+			Call thisUIDoc.GotoField("alDate")
+		End If
+		
+	End If

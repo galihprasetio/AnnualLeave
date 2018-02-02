@@ -1,0 +1,44 @@
+-  28 March 2016
+additional column grade dan hiredate di lookup RefEmployeeName
+-  04 April 2016
+Button Submit 
+Sub submit()
+ 	Call submit_DocumentNo()
+ 	Call submit_ChangeStatus()
+	Call submit_ChangeHistory()
+End Sub
+yang belum di event button submit 
+
+If thisDoc.alDate(0) = "" Then
+		Messagebox "Please fill the Date of Annual Leave!",16,"Error"
+		Goto MoveHere
+	Else
+		Call submit()
+		Call thisDoc.ComputeWithForm(True,False)
+		thisDoc.saveoptions = "0"	
+		Call thisDoc.Save(True,False)
+	End If
+MoveHere:
+
+---->>>
+quuery save 
+
+history continue = true 
+'Call SendMailNOA(doc)
+'Call uidoc.Close
+-	07 April 2016
+Flow document 
+masalah di current authors, cant update or delete document the document not allowed in list authors(Done)
+
+- 19 April 2016
+	.Masalah ketika document di submit, document tidak dapat di edit meskipun telah di save
+	.Masalah view need action masih menampilkan semua document 
+	
+	@Command([FileSave]);
+@SetEnvironment("EditLock"; "Locked");
+@Command([FileCloseWindow])
+	
+	@If(@Command([FileSave]);@Command([FileCloseWindow]);””)
+
+
+

@@ -1,0 +1,17 @@
+Dim i, j As Integer
+	Dim xDate As NotesDateTime
+	Dim xList As String
+	
+	'Set xDate = CurrDoc.StartDate 
+	
+	xList = ""
+	j = CurrDoc.GetItemValue("Days")(0)
+	For i = 1 To j
+		If i < j Then
+			xList = xList + Cstr(i)  + Chr(13)
+		Else
+			xList = xList + Cstr(i)
+		End If		
+	Next
+	
+	Call CurrDoc.ReplaceItemValue("DateList", xList)

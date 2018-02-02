@@ -1,0 +1,11 @@
+FIELD alEmpID := @PickList([Custom]:[Single];MDServer:MDPath;"lkRefEmployeeDept2";"Employees";"Please select the employee!";2;alDepartment);
+
+x:=@DbLookup("":"NoCache";MDServer:MDPath;"lkRefEmployeeID";alEmpID;3);
+FIELD alEmployeeName := @If(@IsError(x);"";x);
+x:=@DbLookup("":"NoCache";MDServer:MDPath;"lkRefEmployeeID";alEmpID;7);
+FIELD alGrade := @If(@IsError(x);"";x);
+x:=@DbLookup("":"NoCache";MDServer:MDPath;"lkRefEmployeeID";alEmpID;8);
+FIELD alHireDate := @If(@IsError(x);"";x);
+
+@True;
+@Command([ViewRefreshFields])

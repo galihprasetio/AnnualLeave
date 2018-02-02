@@ -1,0 +1,8 @@
+Dim StartDateTime As New NotesDateTime(thisDoc.alHireDate(0))
+	StartDateTime.LocalTime = Format(thisDoc.alHireDate(0),"mm/01/yyyy") 'Datenumber(Year(Today), Month(Today), 1)
+	Call StartDateTime.AdjustMonth(1)
+	Call StartDateTime.AdjustDay(-1)
+	'Msgbox(Day(StartDateTime.LSLocalTime))
+	Msgbox(StartDateTime.LSLocalTime)	
+'Msgbox(Format(thisDoc.alHireDate(0),"mm/01/yyyy"))	
+'Msgbox(WorkDay("2/1/2016","2/"+ a +"/2016"))
